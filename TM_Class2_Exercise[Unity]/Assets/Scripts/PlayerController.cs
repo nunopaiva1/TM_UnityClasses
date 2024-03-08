@@ -36,19 +36,17 @@ public class PlayerController : MonoBehaviour
     // Unity expects us to calculate physics on FixedUpdate() -> it also improves the quality and consistency of object collision
     void FixedUpdate()
     {
-        //Adds Force EVERY FRAME on Z
+
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
         //Adds Force EVERY FRAME while the input key is being pressed
         if (Input.GetKey("a"))
         {
-            // Adding negative force to X axis for left movement
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
         if (Input.GetKey("d"))
         {
-            // Adding positive force to X axis for right movement
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
     }
